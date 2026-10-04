@@ -2,6 +2,78 @@
 
 A calm, one-page portfolio. A looping self-introduction video plays in the hero, and the sections below it are built only from the résumé. The palette is paper, ink and grays, with one serif italic word per heading and its own small animation in every section.
 
+**Live site:** https://sivasankar-007.github.io/ · **Repository:** https://github.com/SIVASANKAR-007/sivasankar-007.github.io
+
+> Everything below is stored in this repository, not on any one laptop. If you lose your computer or change jobs, the site keeps running and you can keep editing it from anywhere.
+
+## How to update this site
+
+### Keep access safe (one-time)
+
+1. **Use a personal email on GitHub.** Go to github.com → profile photo → **Settings → Emails**, add your personal Gmail and make it **Primary**. A work email stops working when you leave, and with it your way to reset the password.
+2. **Turn on two-factor login and save the recovery codes.** Go to **Settings → Password and authentication**, enable two-factor with an authenticator app, then download the **recovery codes** and keep them in personal storage.
+3. **Back up the originals:** the raw intro video, your high-resolution photo and your latest résumé PDF. Keep them in your own Google Drive, not a company OneDrive.
+
+### Quick edits from any browser (no setup)
+
+Good for text changes: a new role, project, skill or certification.
+
+1. Sign in at github.com and open this repository.
+2. Open **`src/lib/data.ts`** and click the **pencil icon** (Edit).
+3. Make your change (see the cheat sheet below), then click **Commit changes**.
+4. The site rebuilds itself. After 2–3 minutes, check the **Actions** tab for a green tick, then refresh the site with **Ctrl + F5**.
+
+To swap the résumé, open the **`public`** folder, choose **Add file → Upload files**, upload the new PDF named exactly **`Sivasankar_T_Resume.pdf`**, then commit.
+
+If the Actions run shows a red ✗, open it to read the error. It's usually a missing comma or quote in `data.ts`. Fix it the same way and commit again.
+
+### Bigger edits on a new laptop
+
+1. Install **Git** (https://git-scm.com) and **Node.js LTS** (https://nodejs.org).
+2. In Git Bash:
+   ```bash
+   git clone https://github.com/SIVASANKAR-007/sivasankar-007.github.io.git
+   cd sivasankar-007.github.io
+   npm install
+   npm run dev          # preview at http://localhost:3000
+   ```
+3. Edit, then publish:
+   ```bash
+   git add .
+   git commit -m "Describe the change"
+   git push
+   ```
+   Type commands by hand if pasting adds odd characters. On the first push, a browser window asks you to sign in to GitHub.
+
+### Cheat sheet: what to edit in `src/lib/data.ts`
+
+| To change… | Edit this part |
+|---|---|
+| Job title, email, phone, location, LinkedIn, GitHub | `PROFILE` |
+| Summary paragraph on the About section | `PROFILE.resumeSummary` |
+| A new or ended job (e.g. "Jan 2024 – Present" → an end date) | `EXPERIENCE` (add a new block at the end for a new job) |
+| Degrees | `EDUCATION` |
+| Projects in the Work section | `PROJECTS`: copy an existing block, change the text, and give it a new `id` and `index`. `ui` can be `"orgmap"`, `"taxonomy"`, `"buckets"`, `"gap"`, `"genai"` or `"levels"` |
+| Skills table | `SKILL_GROUPS`: copy a line like `{ name: "SQL", symbol: "Sq", ... }` |
+| Certifications | `CERTIFICATIONS` |
+| Big numbers in Achievements | `ACHIEVEMENTS` |
+| Back of the ID card | `ID_CARD.back` |
+| Intro video transcript | `PROFILE.introTranscript` |
+
+Rules of thumb:
+- Keep the quotes `"…"` and the commas at the ends of lines.
+- Only add facts that are on your résumé.
+
+### When you change jobs
+
+- Update `PROFILE.role`, close the old entry in `EXPERIENCE` with its end date, add the new job, and add new projects and skills.
+- Upload the new résumé PDF to `public/`.
+- Put the site link on LinkedIn: **Contact info → Website**, and under **Featured**.
+
+### Replacing the intro video
+
+See "Rebuilding the hero video" below. Run the script on any computer with Python and ffmpeg, then commit the new files in `public/hero/`.
+
 **Stack:** Next.js 15 (App Router, static export) · React 19 · TypeScript · Tailwind CSS 4 · Lenis (smooth scroll, the only animation dependency). Fonts are self-hosted with `next/font/local`. No GSAP, no three.js, no runtime CDNs.
 
 ## Run it
@@ -61,9 +133,10 @@ What it does:
 
 `next.config.ts` uses `output: "export"`, and `.github/workflows/deploy.yml` builds and publishes `out/`.
 
-1. Push this folder to `SIVASANKAR-007/sivaTheAnalyst1.github.io`. It replaces the old HTML5 UP site, so keep a branch or a backup of the old files if you want them.
-2. In the repo, open **Settings → Pages → Source** and choose **GitHub Actions**.
-3. The workflow sets `NEXT_PUBLIC_BASE_PATH` for you. The repo isn't named `sivasankar-007.github.io`, so the site will be served at `https://sivasankar-007.github.io/sivaTheAnalyst1.github.io/`.
+This site is published from the repository `SIVASANKAR-007/sivasankar-007.github.io`, so it is served at the root: **https://sivasankar-007.github.io/**.
+
+1. In the repo, **Settings → Pages → Source** is set to **GitHub Actions** (already done).
+2. Every push to `main` runs the workflow and redeploys automatically.
 
 For a local build with a sub-path: `NEXT_PUBLIC_BASE_PATH=/repo-name npm run build`.
 
