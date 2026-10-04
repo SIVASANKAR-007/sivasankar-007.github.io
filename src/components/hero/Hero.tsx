@@ -214,7 +214,7 @@ const CSS = `
 .hero{position:relative;min-height:100svh;overflow:hidden;display:flex;align-items:flex-end}
 .hero-ghost{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);margin:0;white-space:nowrap;
   font-weight:800;letter-spacing:-.06em;line-height:.8;font-size:clamp(88px,19vw,330px);color:transparent;
-  -webkit-text-stroke:1.2px rgba(13,13,13,.13);user-select:none;pointer-events:none;
+  -webkit-text-stroke:1.2px rgba(var(--ink-rgb),.13);user-select:none;pointer-events:none;
   animation:ghostIn 1.8s var(--ease) both}
 @keyframes ghostIn{from{opacity:0;letter-spacing:.02em}to{opacity:1}}
 .hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:end;gap:24px}
@@ -236,11 +236,11 @@ const CSS = `
   -webkit-mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%),linear-gradient(to bottom,#000 0,#000 93%,transparent 100%);
   -webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%),linear-gradient(to bottom,#000 0,#000 93%,transparent 100%);mask-composite:intersect}
 .hero-side{grid-column:3;grid-row:1;justify-self:end;align-self:end;padding-bottom:clamp(40px,9vh,96px);display:flex;align-items:center;gap:14px;position:relative;z-index:2}
-.hero-sound{position:relative;width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;
+.hero-sound{position:relative;width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--on-ink);display:grid;place-items:center;
   transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
-.hero-sound:hover{transform:scale(1.06);box-shadow:0 10px 24px -12px rgba(13,13,13,.7)}
+.hero-sound:hover{transform:scale(1.06);box-shadow:0 10px 24px -12px rgba(var(--shadow-rgb),.7)}
 .hero-sound.is-blocked::before,.hero-sound.is-blocked::after{content:"";position:absolute;inset:0;border-radius:50%;
-  box-shadow:0 0 0 1px rgba(13,13,13,.45);animation:ping 2.2s var(--ease) infinite}
+  box-shadow:0 0 0 1px rgba(var(--ink-rgb),.45);animation:ping 2.2s var(--ease) infinite}
 .hero-sound.is-blocked::after{animation-delay:1.1s}
 @keyframes ping{from{transform:scale(1);opacity:.9}to{transform:scale(1.9);opacity:0}}
 .hero-note{display:flex;flex-direction:column;gap:2px;margin:0;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
@@ -250,6 +250,10 @@ const CSS = `
 .hero-scroll-line{width:1px;height:34px;background:linear-gradient(var(--line),var(--line));position:relative;overflow:hidden}
 .hero-scroll-line::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--ink);animation:drip 2s var(--ease) infinite}
 @keyframes drip{to{top:100%}}
+/* Dark: a soft "studio light" pool behind the person; multiply keeps the white backdrop invisible */
+[data-theme="dark"] .hero-stage::before{content:"";position:absolute;inset:-25% -45%;pointer-events:none;
+  background:radial-gradient(ellipse 21% 47% at 50% 50%,#c8c5be 0%,#c0bdb6 52%,rgba(196,193,186,.35) 78%,rgba(196,193,186,0) 100%)}
+[data-theme="dark"] .hero-video{position:relative}
 @media (max-width: 1099px){
   .hero{align-items:stretch}
   .hero-grid{grid-template-columns:minmax(0,1fr);justify-items:center;gap:0;padding-top:72px}

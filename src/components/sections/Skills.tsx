@@ -108,10 +108,10 @@ export default function Skills() {
 const CSS = `
 .sk-intro{margin:20px 0 0;color:var(--mute);max-width:52ch;font-size:16px;line-height:1.55}
 .sk-filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:36px}
-.sk-chip{height:36px;padding:0 14px;border-radius:999px;font-size:13px;font-weight:500;box-shadow:inset 0 0 0 1px rgba(13,13,13,.16);
+.sk-chip{height:36px;padding:0 14px;border-radius:999px;font-size:13px;font-weight:500;box-shadow:inset 0 0 0 1px rgba(var(--ink-rgb),.16);
   color:var(--ink-2);transition:background .45s var(--ease),color .45s var(--ease),box-shadow .45s var(--ease)}
 .sk-chip:hover{box-shadow:inset 0 0 0 1px var(--ink);color:var(--ink)}
-.sk-chip.is-on{background:var(--ink);color:#fff;box-shadow:inset 0 0 0 1px var(--ink)}
+.sk-chip.is-on{background:var(--ink);color:var(--on-ink);box-shadow:inset 0 0 0 1px var(--ink)}
 .sk-layout{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:clamp(20px,2.4vw,36px);margin-top:28px;align-items:start}
 .sk-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
 .sk-grid li{min-width:0}
@@ -123,9 +123,9 @@ const CSS = `
 .sk-grid.is-in .sk-tile{opacity:1;transform:none}
 .sk-grid.is-in .sk-tile.is-dim{opacity:.22}
 .sk-tile:hover{box-shadow:inset 0 0 0 1px var(--ink)}
-.sk-tile.is-active{background:var(--ink);color:#fff;box-shadow:0 14px 30px -16px rgba(13,13,13,.6)}
+.sk-tile.is-active{background:var(--ink);color:var(--on-ink);box-shadow:0 14px 30px -16px rgba(var(--shadow-rgb),.6)}
 .sk-num{font-size:10px;color:var(--faint)}
-.sk-tile.is-active .sk-num,.sk-tile.is-active .sk-fam{color:rgba(255,255,255,.6)}
+.sk-tile.is-active .sk-num,.sk-tile.is-active .sk-fam{color:rgba(var(--on-ink-rgb),.6)}
 .sk-sym{font-weight:700;font-size:clamp(20px,2.1vw,32px);letter-spacing:-.04em;line-height:1;margin-top:auto}
 .sk-name{font-size:11px;line-height:1.2;margin-top:4px;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sk-fam{font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-top:2px}
@@ -134,8 +134,9 @@ const CSS = `
 .sk-logo{position:relative;height:200px;display:grid;place-items:center;margin-top:8px;color:var(--ink);animation:pop .7s var(--ease) both}
 .sk-logo::before{content:"";position:absolute;width:190px;height:190px;border-radius:50%;
   background:radial-gradient(closest-side,color-mix(in srgb,var(--tint) 16%,transparent),transparent);z-index:0}
-.sk-logo:not(.is-brand)::before{background:radial-gradient(closest-side,rgba(13,13,13,.06),transparent)}
+.sk-logo:not(.is-brand)::before{background:radial-gradient(closest-side,rgba(var(--ink-rgb),.06),transparent)}
 .sk-logo>*{position:relative;z-index:1}
+[data-theme="dark"] .sk-logo.is-brand::before{width:176px;height:176px;background:radial-gradient(closest-side,#f4f2ee 72%,color-mix(in srgb,var(--tint) 30%,transparent) 86%,transparent)}
 @keyframes pop{0%{opacity:0;transform:scale(.7)}60%{opacity:1;transform:scale(1.05)}100%{transform:none}}
 .sk-ins-name{margin:10px 0 0;font-size:28px;font-weight:700;letter-spacing:-.035em;line-height:1.05}
 .sk-ins-fam{margin:6px 0 0;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}

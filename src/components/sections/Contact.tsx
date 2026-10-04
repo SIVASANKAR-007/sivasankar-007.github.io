@@ -163,13 +163,13 @@ const CSS = `
 .ctc-main{min-width:0;flex:1}
 .ctc-email{display:flex;align-items:center;flex-wrap:wrap;gap:14px 18px}
 .ctc-email a{font-size:clamp(24px,3.6vw,52px);font-weight:600;letter-spacing:-.04em;line-height:1.1;overflow-wrap:anywhere;
-  text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.16em;text-decoration-color:rgba(13,13,13,.25);
+  text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.16em;text-decoration-color:rgba(var(--ink-rgb),.25);
   transition:text-decoration-color .4s var(--ease)}
 .ctc-email a:hover{text-decoration-color:var(--ink)}
-.ctc-copy{height:34px;padding:0 14px;border-radius:999px;font-size:13px;font-weight:500;box-shadow:inset 0 0 0 1px rgba(13,13,13,.2);
+.ctc-copy{height:34px;padding:0 14px;border-radius:999px;font-size:13px;font-weight:500;box-shadow:inset 0 0 0 1px rgba(var(--ink-rgb),.2);
   transition:background .4s var(--ease),color .4s var(--ease),transform .4s var(--ease)}
-.ctc-copy:hover{background:var(--ink);color:#fff;transform:translateY(-1px)}
-.ctc-copy.is-done{background:var(--ink);color:#fff}
+.ctc-copy:hover{background:var(--ink);color:var(--on-ink);transform:translateY(-1px)}
+.ctc-copy.is-done{background:var(--ink);color:var(--on-ink)}
 .ctc-links{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,auto));justify-content:start;gap:18px 48px}
 .ctc-links li{display:flex;flex-direction:column;gap:6px;font-size:15px;min-width:0}
 .ctc-links .mono{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
@@ -178,7 +178,7 @@ const CSS = `
 .ctc-badge{position:relative;flex:none;width:168px;height:168px;display:grid;place-items:center;border-radius:50%}
 .ctc-badge svg{position:absolute;inset:0;width:100%;height:100%;animation:spin 18s linear infinite}
 .ctc-badge text{font:500 15px var(--font-mono);letter-spacing:.2em;fill:var(--ink)}
-.ctc-badge-core{width:64px;height:64px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:22px;
+.ctc-badge-core{width:64px;height:64px;border-radius:50%;background:var(--ink);color:var(--on-ink);display:grid;place-items:center;font-size:22px;
   transition:transform .6s var(--ease)}
 .ctc-badge:hover .ctc-badge-core{transform:rotate(45deg) scale(1.08)}
 @keyframes spin{to{transform:rotate(360deg)}}

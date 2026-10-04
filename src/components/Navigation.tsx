@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { NAV, PROFILE } from "@/lib/data";
 import { lockScroll, scrollToTarget } from "@/lib/scroll";
+import ThemeToggle from "./ui/ThemeToggle";
 
 const useIsoLayout = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
@@ -112,6 +113,7 @@ export default function Navigation() {
           <span className="sr-only"> — back to top</span>
         </a>
 
+        <div className="nav-right">
         <nav aria-label="Primary" className="nav-desktop">
           <ul ref={listRef} className="nav-pill">
             {pill && (
@@ -137,6 +139,8 @@ export default function Navigation() {
           </ul>
         </nav>
 
+        <ThemeToggle />
+
         <button
           ref={menuBtn}
           type="button"
@@ -148,6 +152,7 @@ export default function Navigation() {
           <span>{open ? "Close" : "Menu"}</span>
           <i aria-hidden="true" />
         </button>
+        </div>
       </div>
 
       <div id="mobile-menu" className="nav-overlay" hidden={!open} role="dialog" aria-modal="true" aria-label="Menu">
@@ -176,35 +181,36 @@ const CSS = `
 .nav-progress>div{height:100%;background:var(--ink);transform-origin:0 50%;transform:scaleX(0)}
 .nav-row{pointer-events:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;
   max-width:calc(1320px + var(--gutter)*2);margin:0 auto;padding:16px var(--gutter);position:relative;z-index:2}
+.nav-right{display:flex;align-items:center;gap:10px}
 .nav-brand{display:flex;align-items:center;gap:12px;min-width:0}
 .nav-mark{width:42px;height:42px;flex:none;border-radius:50%;display:grid;place-items:center;
   font:600 13px/1 var(--font-mono);letter-spacing:.02em;box-shadow:inset 0 0 0 1.5px var(--ink);
   background:transparent;color:var(--ink);transition:background .5s var(--ease),color .5s var(--ease),transform .9s var(--ease)}
 .nav-brand:hover .nav-mark{transform:rotate(360deg)}
-.is-scrolled .nav-mark{background:var(--ink);color:#fff}
+.is-scrolled .nav-mark{background:var(--ink);color:var(--on-ink)}
 .nav-name{font-weight:600;letter-spacing:-.02em;font-size:15px;white-space:nowrap;transition:opacity .5s var(--ease),transform .5s var(--ease)}
 .is-scrolled .nav-name{opacity:0;transform:translateX(-8px);pointer-events:none}
 .nav-pill{list-style:none;margin:0;padding:5px;display:flex;gap:2px;position:relative;border-radius:999px;
-  background:rgba(255,255,255,.55);box-shadow:inset 0 0 0 1px var(--line);
+  background:rgba(var(--glass-rgb),.55);box-shadow:inset 0 0 0 1px var(--line);
   transition:background .5s var(--ease),box-shadow .5s var(--ease)}
-.is-scrolled .nav-pill{background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
-  box-shadow:inset 0 0 0 1px var(--line),0 10px 30px -18px rgba(13,13,13,.35)}
+.is-scrolled .nav-pill{background:rgba(var(--glass-rgb),.72);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  box-shadow:inset 0 0 0 1px var(--line),0 10px 30px -18px rgba(var(--shadow-rgb),.35)}
 .nav-pill a{position:relative;z-index:1;display:block;padding:9px 16px;border-radius:999px;font-size:14px;font-weight:500;
   color:var(--ink-2);transition:color .45s var(--ease)}
 .nav-pill a:hover{color:var(--ink)}
-.nav-pill a.is-active{color:#fff}
+.nav-pill a.is-active{color:var(--on-ink)}
 .nav-ind{position:absolute;left:0;top:5px;bottom:5px;border-radius:999px;background:var(--ink);
   transition:transform .6s var(--ease),width .6s var(--ease)}
 .nav-menu-btn{display:none;align-items:center;gap:10px;height:42px;padding:0 16px 0 18px;border-radius:999px;
-  background:rgba(255,255,255,.75);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  background:rgba(var(--glass-rgb),.75);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
   box-shadow:inset 0 0 0 1px var(--line);font-weight:500;font-size:14px}
 .nav-menu-btn i{width:16px;height:8px;position:relative}
 .nav-menu-btn i::before,.nav-menu-btn i::after{content:"";position:absolute;left:0;right:0;height:1.5px;background:var(--ink);
   transition:transform .5s var(--ease),top .5s var(--ease)}
 .nav-menu-btn i::before{top:0}.nav-menu-btn i::after{top:6px}
-.is-open .nav-menu-btn{background:var(--ink);color:#fff}
-.is-open .nav-menu-btn i::before{top:3px;transform:rotate(45deg);background:#fff}
-.is-open .nav-menu-btn i::after{top:3px;transform:rotate(-45deg);background:#fff}
+.is-open .nav-menu-btn{background:var(--ink);color:var(--on-ink)}
+.is-open .nav-menu-btn i::before{top:3px;transform:rotate(45deg);background:var(--on-ink)}
+.is-open .nav-menu-btn i::after{top:3px;transform:rotate(-45deg);background:var(--on-ink)}
 .nav-overlay{pointer-events:auto;position:fixed;inset:0;z-index:1;background:var(--paper);display:flex;flex-direction:column;
   justify-content:center;padding:96px var(--gutter) 32px;animation:navReveal .8s var(--ease) both}
 .nav-overlay[hidden]{display:none}

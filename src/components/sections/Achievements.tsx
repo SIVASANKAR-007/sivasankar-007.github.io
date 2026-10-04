@@ -173,13 +173,13 @@ const CSS = `
 .ac-progress b{display:block;height:100%;background:var(--ink);transform-origin:0 50%}
 .ac-track{list-style:none;margin:0;display:flex;gap:18px;width:max-content;padding:20px max(var(--gutter),calc((100vw - 1320px)/2)) 30px;will-change:transform}
 .ac-card{position:relative;flex:none;width:clamp(min(340px,calc(100vw - 36px)),40vw,540px);height:clamp(260px,36vh,310px);
-  background:#fff;border-radius:28px;box-shadow:var(--hair),0 10px 30px -24px rgba(13,13,13,.25);padding:22px 24px;
+  background:var(--card);border-radius:28px;box-shadow:var(--hair),0 10px 30px -24px rgba(var(--shadow-rgb),.25);padding:22px 24px;
   display:flex;flex-direction:column;justify-content:space-between;transition:transform .8s var(--ease),box-shadow .8s var(--ease)}
-.ac-card.is-active{transform:translateY(-12px);box-shadow:var(--hair),0 40px 70px -30px rgba(13,13,13,.32),0 12px 24px -16px rgba(13,13,13,.16)}
+.ac-card.is-active{transform:translateY(-12px);box-shadow:var(--hair),0 40px 70px -30px rgba(var(--shadow-rgb),.32),0 12px 24px -16px rgba(var(--shadow-rgb),.16)}
 .ac-top{display:flex;justify-content:space-between;align-items:flex-start}
 .ac-logo{position:relative;width:72px;height:72px;border-radius:20px;background:var(--paper);display:grid;place-items:center;color:var(--ink);
   box-shadow:inset 0 0 0 1px var(--line)}
-.ac-logo::before{content:"";position:absolute;inset:-14px;border-radius:50%;background:radial-gradient(closest-side,rgba(13,13,13,.07),transparent);
+.ac-logo::before{content:"";position:absolute;inset:-14px;border-radius:50%;background:radial-gradient(closest-side,rgba(var(--ink-rgb),.07),transparent);
   opacity:.5;transition:opacity .8s var(--ease);z-index:-1}
 .ac-card.is-active .ac-logo::before{opacity:1}
 .ac-idx{font-size:11px;color:var(--faint);letter-spacing:.06em}

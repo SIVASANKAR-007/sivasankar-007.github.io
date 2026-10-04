@@ -104,9 +104,9 @@ const CSS = `
 .wk-spine-num{font-size:12px;color:var(--mute)}
 .wk-spine-title{writing-mode:vertical-rl;transform:rotate(180deg);font-weight:600;font-size:15px;letter-spacing:-.01em;white-space:nowrap;
   max-height:calc(100% - 110px);overflow:hidden;text-overflow:ellipsis}
-.wk-plus{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(13,13,13,.2);
+.wk-plus{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(var(--ink-rgb),.2);
   font-size:20px;font-weight:300;transition:transform .6s var(--ease),background .4s var(--ease),color .4s var(--ease)}
-.wk-panel:hover .wk-plus{transform:rotate(90deg);background:var(--ink);color:#fff}
+.wk-panel:hover .wk-plus{transform:rotate(90deg);background:var(--ink);color:var(--on-ink)}
 .wk-body{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,2.4vw,36px);
   padding:clamp(22px,2.6vw,38px);opacity:0;transition:opacity .4s var(--ease);min-width:720px}
 .wk-panel.is-open .wk-body{opacity:1;transition:opacity .7s var(--ease) .25s}
@@ -124,7 +124,7 @@ const CSS = `
 .wk-visual{position:relative;min-width:0;clip-path:inset(0 100% 0 0 round 18px);transition:clip-path 1s var(--ease)}
 .wk-panel.is-open .wk-visual{clip-path:inset(0 0 0 0 round 18px);transition-delay:.35s}
 .wk-visual-tag{position:absolute;z-index:2;right:12px;top:7px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);
-  background:#fff;padding:3px 8px;border-radius:99px;box-shadow:inset 0 0 0 1px var(--line)}
+  background:var(--card);padding:3px 8px;border-radius:99px;box-shadow:inset 0 0 0 1px var(--line)}
 @media (max-width: 1100px) and (min-width: 900px){
   .wk-body{min-width:560px;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
 }
@@ -134,9 +134,9 @@ const CSS = `
   .wk-spine{position:relative;flex-direction:row;justify-content:flex-start;gap:14px;padding:18px 18px;text-align:left}
   .wk-panel.is-open .wk-spine{opacity:1;pointer-events:auto}
   .wk-spine-title{writing-mode:horizontal-tb;transform:none;white-space:normal;max-height:none;flex:1;font-size:16px}
-  .wk-panel.is-open .wk-plus{transform:rotate(45deg);background:var(--ink);color:#fff}
+  .wk-panel.is-open .wk-plus{transform:rotate(45deg);background:var(--ink);color:var(--on-ink)}
   .wk-panel:hover .wk-plus{transform:none;background:transparent;color:inherit}
-  .wk-panel.is-open:hover .wk-plus{transform:rotate(45deg);background:var(--ink);color:#fff}
+  .wk-panel.is-open:hover .wk-plus{transform:rotate(45deg);background:var(--ink);color:var(--on-ink)}
   .wk-body{position:relative;inset:auto;min-width:0;grid-template-columns:minmax(0,1fr);display:none;padding:0 18px 20px}
   .wk-panel.is-open .wk-body{display:grid}
   .wk-title{display:none}

@@ -229,7 +229,7 @@ const CSS = `
 .idc-clip{width:44px;height:30px;margin-top:-4px;position:relative;z-index:2;border-radius:6px 6px 10px 10px;
   background:linear-gradient(180deg,#d9d9d9,#8f8f8f 55%,#c9c9c9);box-shadow:0 2px 4px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.8)}
 .idc-clip i{position:absolute;left:50%;bottom:-14px;width:18px;height:20px;margin-left:-9px;border:3px solid #9a9a9a;border-top:0;border-radius:0 0 10px 10px}
-.idc-card{pointer-events:auto;margin-top:6px;width:300px;height:420px;perspective:1400px;cursor:pointer;border-radius:22px;outline-offset:6px}
+.idc-card{--ink:#0d0d0d;--ink-2:#3a3a3a;--mute:#686660;--faint:#706e68;--line:rgba(13,13,13,.1);--soft:#e9e6e0;--paper:#f4f2ee;color:var(--ink);pointer-events:auto;margin-top:6px;width:300px;height:420px;perspective:1400px;cursor:pointer;border-radius:22px;outline-offset:6px}
 .idc-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform 1s var(--ease)}
 .idc-card.is-flipped .idc-inner{transform:rotateY(180deg)}
 .idc-face{position:absolute;inset:0;border-radius:22px;background:#fff;overflow:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden;
@@ -267,6 +267,8 @@ const CSS = `
 .idc-sig-cap{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:5px}
 .idc-found{margin:12px 20px 16px;font-size:9.5px;letter-spacing:.04em;color:var(--mute);overflow-wrap:anywhere}
 .idc-found span{color:var(--ink)}
+[data-theme="dark"] .idc-strap{background:#2b2a27}
+[data-theme="dark"] .idc-card:focus-visible{outline-color:#f1efea}
 @media (max-width: 759px){
   .idc-strap{height:calc(var(--section-y) * .4 + 40px)}
   .idc-swing{top:0}

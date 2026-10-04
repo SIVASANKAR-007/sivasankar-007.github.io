@@ -110,7 +110,7 @@ const CSS = `
 .ex-stop{position:relative;display:grid;grid-template-columns:180px minmax(0,1fr);gap:24px;padding-bottom:clamp(36px,6vh,64px)}
 .ex-dot{position:absolute;left:calc(clamp(8px,2vw,24px) - clamp(36px,6vw,80px) - 6px);top:12px;width:14px;height:14px;border-radius:50%;
   background:var(--paper);box-shadow:inset 0 0 0 2px var(--faint);transition:box-shadow .6s var(--ease),background .6s var(--ease),transform .6s var(--ease)}
-.ex-stop.is-lit .ex-dot{background:var(--ink);box-shadow:inset 0 0 0 2px var(--ink),0 0 0 6px rgba(13,13,13,.08);transform:scale(1.1)}
+.ex-stop.is-lit .ex-dot{background:var(--ink);box-shadow:inset 0 0 0 2px var(--ink),0 0 0 6px rgba(var(--ink-rgb),.08);transform:scale(1.1)}
 .ex-year{margin:8px 0 0;font-size:12px;letter-spacing:.04em;color:var(--faint);display:flex;flex-direction:column;gap:4px;transition:color .6s var(--ease)}
 .ex-kind{font-size:10px;letter-spacing:.12em;text-transform:uppercase}
 .ex-stop.is-lit .ex-year{color:var(--ink)}
@@ -125,7 +125,7 @@ const CSS = `
 .ex-points li{position:relative;padding:8px 0 8px 18px;font-size:14px;line-height:1.55;color:var(--ink-2);border-top:1px solid var(--line)}
 .ex-points li::before{content:"";position:absolute;left:0;top:17px;width:8px;height:1px;background:var(--ink)}
 .ex-next{padding-bottom:0}
-.ex-next-card{background:transparent;box-shadow:none;border:1.5px dashed rgba(13,13,13,.28);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.ex-next-card{background:transparent;box-shadow:none;border:1.5px dashed rgba(var(--ink-rgb),.28);display:flex;align-items:center;justify-content:space-between;gap:16px}
 .ex-next-card:hover{border-color:var(--ink)}
 .ex-next-go{font-size:24px;transition:transform .5s var(--ease)}
 .ex-next-card:hover .ex-next-go{transform:translateX(6px)}

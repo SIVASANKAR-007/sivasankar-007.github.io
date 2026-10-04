@@ -67,8 +67,8 @@ a.ct-row{cursor:pointer}
 .ct-title{font-size:clamp(17px,1.6vw,22px);font-weight:600;letter-spacing:-.025em;line-height:1.2}
 .ct-issuer{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);text-align:right}
 .ct-arrow{font-size:18px;opacity:0;transform:translateX(-14px)}
-.ct-row:hover>*,.ct-row:focus-visible>*{color:#fff}
-.ct-row:hover .ct-num,.ct-row:focus-visible .ct-num,.ct-row:hover .ct-issuer,.ct-row:focus-visible .ct-issuer{color:rgba(255,255,255,.65)}
+.ct-row:hover>*,.ct-row:focus-visible>*{color:var(--on-ink)}
+.ct-row:hover .ct-num,.ct-row:focus-visible .ct-num,.ct-row:hover .ct-issuer,.ct-row:focus-visible .ct-issuer{color:rgba(var(--on-ink-rgb),.65)}
 .ct-row:hover .ct-arrow,.ct-row:focus-visible .ct-arrow{opacity:1;transform:none}
 @media (max-width: 859px){
   .ct-grid{grid-template-columns:minmax(0,1fr)}
