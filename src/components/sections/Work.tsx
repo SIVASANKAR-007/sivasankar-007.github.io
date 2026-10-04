@@ -108,7 +108,7 @@ const CSS = `
   font-size:20px;font-weight:300;transition:transform .6s var(--ease),background .4s var(--ease),color .4s var(--ease)}
 .wk-panel:hover .wk-plus{transform:rotate(90deg);background:var(--ink);color:#fff}
 .wk-body{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,2.4vw,36px);
-  padding:clamp(22px,2.6vw,38px);opacity:0;transition:opacity .4s var(--ease);min-width:760px}
+  padding:clamp(22px,2.6vw,38px);opacity:0;transition:opacity .4s var(--ease);min-width:720px}
 .wk-panel.is-open .wk-body{opacity:1;transition:opacity .7s var(--ease) .25s}
 .wk-info{display:flex;flex-direction:column;min-width:0;overflow:auto;scrollbar-width:none}
 .wk-kicker{margin:0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
@@ -126,7 +126,7 @@ const CSS = `
 .wk-visual-tag{position:absolute;z-index:2;right:12px;top:7px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);
   background:#fff;padding:3px 8px;border-radius:99px;box-shadow:inset 0 0 0 1px var(--line)}
 @media (max-width: 1100px) and (min-width: 900px){
-  .wk-body{min-width:640px;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+  .wk-body{min-width:560px;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
 }
 @media (max-width: 899px){
   .wk-acc{flex-direction:column;height:auto;gap:10px}

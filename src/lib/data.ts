@@ -104,6 +104,7 @@ const P2 = "Job Role Mapping to Draup Platform Taxonomy";
 const P3 = "Skills Classification";
 const P4 = "Skills Gap Analysis";
 const P5 = "GenAI Tool & Skills Recommendation";
+const P6 = "Skills Architecture & Job Leveling – Aker Solutions";
 const RA = "Research Analyst, Zinnov";
 const ARE = "Associate Research Executive, Zinnov";
 const SUM = "Day-to-day analytics work";
@@ -134,7 +135,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     family: "Advanced Excel",
     short: "Excel",
     skills: [
-      { name: "Advanced Excel", symbol: "Ex", family: "Advanced Excel", logo: "sheet", usedIn: [P1, P2, P3, P4] },
+      { name: "Advanced Excel", symbol: "Ex", family: "Advanced Excel", logo: "sheet", usedIn: [P1, P2, P3, P4, P6] },
       { name: "Pivot Tables", symbol: "Pt", family: "Advanced Excel", logo: "pivot", usedIn: [] },
       { name: "Lookups", symbol: "Lk", family: "Advanced Excel", logo: "lookup", usedIn: [] },
       { name: "KPI Trackers", symbol: "Kp", family: "Advanced Excel", logo: "kpi", usedIn: [ARE] },
@@ -149,7 +150,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
       { name: "Statistical Analysis", symbol: "St", family: "Analytics", logo: "bell", usedIn: [] },
       { name: "Trend Analysis", symbol: "Tr", family: "Analytics", logo: "trend", usedIn: [RA] },
       { name: "Predictive Analytics", symbol: "Pa", family: "Analytics", logo: "forecast", usedIn: [P1, RA] },
-      { name: "Data Validation", symbol: "Dv", family: "Analytics", logo: "check", usedIn: [P2, RA] },
+      { name: "Data Validation", symbol: "Dv", family: "Analytics", logo: "check", usedIn: [P2, P6, RA] },
     ],
   },
   {
@@ -177,7 +178,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
     family: "Platforms",
     short: "Platforms",
     skills: [
-      { name: "Draup Platform", symbol: "Dp", family: "Platforms", logo: "taxonomy", usedIn: [P1, P2] },
+      { name: "Draup Platform", symbol: "Dp", family: "Platforms", logo: "taxonomy", usedIn: [P1, P2, P6] },
       { name: "Salesforce Admin", symbol: "Sf", family: "Platforms", logo: "salesforce", usedIn: [] },
       { name: "Microsoft 365", symbol: "Ms", family: "Platforms", logo: "grid", usedIn: [] },
       { name: "GitHub", symbol: "Gh", family: "Platforms", logo: "github", usedIn: [] },
@@ -260,7 +261,7 @@ export const TIMELINE: TimelineStop[] = [...EDUCATION, ...EXPERIENCE].sort((a, b
 /* Projects                                                            */
 /* ------------------------------------------------------------------ */
 
-export type ProjectUI = "orgmap" | "taxonomy" | "buckets" | "gap" | "genai";
+export type ProjectUI = "orgmap" | "taxonomy" | "buckets" | "gap" | "genai" | "levels";
 
 export type Project = {
   id: string;
@@ -379,6 +380,28 @@ export const PROJECTS: Project[] = [
     ],
     ui: "genai",
   },
+  {
+    id: "aker-skills-architecture",
+    index: "06",
+    title: "Skills Architecture & Job Leveling",
+    kicker: "Aker Solutions",
+    description:
+      "Designed a discipline-wise skills and job architecture framework, mapping engineering roles across band levels (E–K) to core, emerging and digital skills using the Draup Skills Library. Defined band-level job descriptions and competency requirements to standardize job leveling.",
+
+    features: [
+      "Discipline-wise job architecture",
+      "Band levels E–K",
+      "Core, emerging & digital skills",
+      "Validated workbooks for HR & L&D",
+    ],
+    tech: [
+      { name: "Advanced Excel", logo: "sheet" },
+      { name: "Draup Platform", logo: "taxonomy" },
+      { name: "Skills Taxonomy", logo: "tree" },
+      { name: "Competency Mapping", logo: "pivot" },
+    ],
+    ui: "levels",
+  },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -495,7 +518,7 @@ export const ID_CARD = {
     "Data & Research Analyst",
     "MBA (Finance) · Annamalai University",
     "Just over three years at Zinnov",
-    "Role Mapping CoE · Skills Gap Analysis",
+    "Role Mapping CoE · Aker Skills Architecture",
     "Go That Extra Mile Award",
   ],
 };

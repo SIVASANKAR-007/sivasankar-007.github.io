@@ -25,10 +25,44 @@ const TITLES: Record<ProjectUI, string> = {
   buckets: "skills / classify",
   gap: "benchmark / gap",
   genai: "workloads / readiness",
+  levels: "job-architecture / bands",
 };
 
 const bar = (w: number, k: string, dark = false) => (
   <span key={k} className={`mui-bar ${dark ? "is-dark" : ""}`} style={{ width: `${w}%` }} />
+);
+
+const LEVELS = (
+  <div className="mui-levels">
+    <div className="mui-lv-row mui-lv-head mono">
+      <span />
+      {["E", "F", "G", "H", "I", "J", "K"].map((b) => (
+        <span key={b}>{b}</span>
+      ))}
+    </div>
+    {[
+      [1, 1, 1, 1, 0, 0, 0],
+      [0, 1, 1, 1, 1, 1, 0],
+      [1, 1, 1, 1, 1, 0, 0],
+      [0, 0, 1, 1, 1, 1, 1],
+      [1, 1, 1, 0, 0, 0, 0],
+    ].map((row, r) => (
+      <div key={r} className="mui-lv-row">
+        <span className="mui-lv-lbl mono">Disc. {String.fromCharCode(65 + r)}</span>
+        {row.map((on, i) => (
+          <span key={i} className={`mui-lv-cell ${on ? (i > 3 ? "is-dark" : "is-on") : ""}`} />
+        ))}
+      </div>
+    ))}
+    <div className="mui-legend mono">
+      <span>
+        <i /> Core
+      </span>
+      <span>
+        <i className="is-dark" /> Emerging / digital
+      </span>
+    </div>
+  </div>
 );
 
 const BODY: Record<ProjectUI, React.ReactNode> = {
@@ -146,6 +180,7 @@ const BODY: Record<ProjectUI, React.ReactNode> = {
       </div>
     </div>
   ),
+  levels: LEVELS,
 };
 
 const CSS = `
@@ -207,4 +242,12 @@ const CSS = `
 .mui-prompt span{color:#8d8a84;margin-right:6px}
 .mui-prompt i{display:inline-block;width:7px;height:12px;background:#e9e6e0;vertical-align:-2px;margin-left:4px;animation:blink 1.1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
+.mui-levels{display:flex;flex-direction:column;gap:8px}
+.mui-lv-row{display:grid;grid-template-columns:58px repeat(7,minmax(0,1fr));gap:6px;align-items:center}
+.mui-lv-head span{font-size:9.5px;color:var(--mute);text-align:center;letter-spacing:.06em}
+.mui-lv-lbl{font-size:9.5px;color:var(--ink-2)}
+.mui-lv-cell{height:24px;border-radius:6px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}
+.mui-lv-cell.is-on{background:#d8d5cf;box-shadow:none}
+.mui-lv-cell.is-dark{background:#3a3a3a;box-shadow:none}
+.mui-levels .mui-legend{margin-top:6px}
 `;
