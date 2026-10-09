@@ -44,8 +44,8 @@ export const PROFILE: Profile = {
   // Supplied by the owner (not in the résumé PDF).
   github: "https://github.com/SIVASANKAR-007",
   githubLabel: "github.com/SIVASANKAR-007",
-  linkedin: "https://www.linkedin.com/in/sivasankar-t",
-  linkedinLabel: "linkedin.com/in/sivasankar-t",
+  linkedin: "https://www.linkedin.com/in/siva-sankar-t-a8532b2b2/",
+  linkedinLabel: "linkedin.com/in/siva-sankar-t-a8532b2b2",
   resume: "/Sivasankar_T_Resume.pdf",
   // Paraphrase of the résumé's own words: "turning research into decisions".
   quote: "Turning research into decisions.",

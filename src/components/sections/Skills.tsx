@@ -19,7 +19,7 @@ export default function Skills() {
       <div className="wrap">
         <SectionHead id="skills" label="Skills" lead="The periodic table of my" accent="stack.">
           <p className="sk-intro rv" style={{ "--i": 1 } as React.CSSProperties}>
-            {ALL_SKILLS.length} elements from my résumé, grouped into {SKILL_GROUPS.length} families. Hover or focus a tile to
+            {ALL_SKILLS.length} elements from my resume, grouped into {SKILL_GROUPS.length} families. Hover or focus a tile to
             inspect it.
           </p>
         </SectionHead>
@@ -94,7 +94,7 @@ export default function Skills() {
                   ))}
                 </ul>
               ) : (
-                <p className="sk-ins-none">Listed under {skill.family} on my résumé.</p>
+                <p className="sk-ins-none">Listed under {skill.family} on my resume.</p>
               )}
             </div>
             {!brand && <p className="sk-ins-note mono">Line icon · no official mark used</p>}

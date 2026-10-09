@@ -16,7 +16,7 @@ export default function Work() {
         <div className="wk-head">
           <SectionHead id="work" label="Selected work" lead="Things I've" accent="mapped." />
           <p className="wk-sub rv" style={{ "--i": 2 } as React.CSSProperties}>
-            {PROJECTS.length} key projects from my résumé. Hover, focus or tap a panel to open it.
+            {PROJECTS.length} key projects from my resume. Hover, focus or tap a panel to open it.
           </p>
         </div>
 

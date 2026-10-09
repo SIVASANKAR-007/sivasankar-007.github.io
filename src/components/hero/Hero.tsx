@@ -152,7 +152,7 @@ export default function Hero() {
               Let&apos;s talk
             </a>
             <a href={asset(PROFILE.resume)} download className="btn btn-ghost">
-              Résumé <span aria-hidden="true">↓</span>
+              Resume <span aria-hidden="true">↓</span>
             </a>
           </div>
         </div>

@@ -28,7 +28,7 @@ export default function About() {
             </p>
             <div className="about-btns rv" style={{ "--i": 3 } as React.CSSProperties}>
               <a className="btn btn-primary btn-sm" href={asset(PROFILE.resume)} download>
-                Résumé <span aria-hidden="true">↓</span>
+                Resume <span aria-hidden="true">↓</span>
               </a>
               {PROFILE.github && (
                 <a className="btn btn-ghost btn-sm" href={PROFILE.github} target="_blank" rel="noopener noreferrer">
